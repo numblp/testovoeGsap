@@ -1,0 +1,81 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  
+}
+
+.ad{
+  height: 100vh;
+  width: 100vw;
+  background: url("BG.jpg") no-repeat;
+  background-size: cover;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.container {
+  width: 1316px;
+  height: 735px;
+  /* background: url("bgcontainer.jpg") no-repeat;
+  background-size: contain; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.mainBG{
+  width: auto;
+  height: 735px;
+  position: absolute;
+}
+
+.animatiomWrapper {
+  width: calc(1316px - 150px);
+  height: calc(735px - 150px);
+  outline: 1px solid black;
+  overflow: hidden;
+}
+
+.logos {
+  display: flex;
+  justify-content: space-between;
+}
+
+.samsung {
+  margin-top: 60px;
+  width: 192px;
+  height: 30px;
+}
+
+.jet {
+  width: 236px;
+  height: 38px;
+  position: relative;
+}
+
+.mainString {
+  margin-top: 60px;
+  position: relative;
+
+}
+
+.mainString img{
+  width: calc(666px - 20%);
+  position: absolute;
+}
+
+.slidingBG {
+  background: #fff;
+  width: calc(1316px / 2);
+  height: 735px;
+  position: absolute;
+  left: 0;
+  top: 0;
+}
