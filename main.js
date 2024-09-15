@@ -13,31 +13,40 @@ const intro = gsap.timeline()
     .from('.button', {opacity: 0, duration: 1},)
     .from('.slider', {opacity: 0, duration: 1}, '<+0.5')
     .to('.seeSite', {color: 'black', duration: 1}, '<')
-    .to('.button', {
-      scale: 1.1,
-      duration: 1.5,
-      yoyo: true,
-      repeat: -1,
-      ease: "power1.inOut",
-      delay: 1,
-    })
-    .to('.button', {
-      scale: 1.1,
-      duration: 0.3,
-      paused: true,
-      onStart: () => {
-        // Остановка пульсации при наведении
-        gsap.killTweensOf('.button');
-      },
-      onEnter: () => {
-        // Увеличение при наведении
-        gsap.to('.button', { scale: 1.1, duration: 0.3 });
-      },
-      onLeave: () => {
-        // Возвращение к исходному масштабу при уходе мыши
-        gsap.to('.button', { scale: 1, duration: 0.3 });
-      }
-    })
+    // .to('.button', {
+    //   scale: 1.1,
+    //   duration: 1.5,
+    //   yoyo: true,
+    //   repeat: -1,
+    //   ease: "power1.inOut",
+    //   delay: 1,
+    // })
+    // .to('.button', {
+    //   scale: 1.1,
+    //   duration: 0.3,
+    //   paused: true,
+    //   onStart: () => {
+    //     // Остановка пульсации при наведении
+    //     gsap.killTweensOf('.button');
+    //   },
+    //   onEnter: () => {
+    //     // Увеличение при наведении
+    //     gsap.to('.button', { scale: 1.1, duration: 0.3 });
+    //   },
+    //   onLeave: () => {
+    //     // Возвращение к исходному масштабу при уходе мыши
+    //     gsap.to('.button', { scale: 1, duration: 0.3 });
+    //   }
+    // })
+    
+    const pulsing = gsap.timeline().to(".pulse", {scale: 0.8, duration: 1.5, yoyo: true, repeat: -1});
+    
+    document.querySelector('.pulse').addEventListener("mouseenter", () => {
+      pulsing.pause();
+      gsap.to(".button", {scale: 1.1,})
+     })
+    document.querySelector('.pulse').addEventListener("mouseleave", () => {gsap.to(".button", {scale: 1})})
+
 
 const slides = document.querySelectorAll('.slide');
 const nextButton = document.querySelector('.next');
@@ -61,6 +70,7 @@ function updateCounterAndGallery() {
 function showSlide(index) {
   slides.forEach((slide, i) => {
     slide.classList.toggle('active', i === index);
+    gsap.fromTo('.active', { x: 20, duration: 0.5}, {x: 0, duration: 0.5});
   });
   updateCounterAndGallery();
 }
@@ -81,7 +91,7 @@ function showGallery() {
 // Автоматическое переключение слайдов через каждые 5 секунд
 function startAutoSlide() {
   stopAutoSlide(); // Останавливаем любой предыдущий интервал
-  //clearInterval(autoSlideInterval);
+  // clearInterval(autoSlideInterval);
   autoSlideInterval = setInterval(() => {
     currentIndex = (currentIndex + 1) % slides.length;
     showSlide(currentIndex);
