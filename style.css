@@ -21,13 +21,16 @@ body {
 .container {
   width: 1316px;
   height: 735px;
-  /* background: url("bgcontainer.jpg") no-repeat;
-  background-size: contain; */
+  border: 3px solid #000;
+  background: url("bgcontainer.jpg") no-repeat;
+  background-size: contain;
   display: flex;
   justify-content: center;
   align-items: center;
   position: relative;
   overflow: hidden;
+  
+
 }
 
 .mainBG{
@@ -39,7 +42,8 @@ body {
 .animatiomWrapper {
   width: calc(1316px - 150px);
   height: calc(735px - 150px);
-  outline: 1px solid black;
+  /* outline: 1px solid black; */
+
   overflow: hidden;
 }
 
@@ -73,9 +77,138 @@ body {
 
 .slidingBG {
   background: #fff;
-  width: calc(1316px / 2);
+  /* width: calc(1316px / 2); */
+  width: 55%;
   height: 735px;
   position: absolute;
   left: 0;
   top: 0;
+}
+
+.slider {
+  width: 100%;
+  margin-bottom: -60px;
+  /* overflow: hidden; */
+  position: absolute;
+  bottom: 370px;
+  left: 70px;
+}
+
+.slides {
+  display: flex;
+  /* position: relative; */
+  width: 100%;
+}
+
+.slide {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.5s ease
+}
+
+.slide a {
+  text-decoration: none;
+  color: #808080;
+  font-size: 20px;
+}
+
+.readMore1 {
+  position: absolute;
+  top: 86px;
+  right: 457px;
+}
+
+.readMore2 {
+  position: absolute;
+  top: 87px;
+  right: 432px;
+}
+
+.readMore4 {
+  position: absolute;
+  top: 120px;
+  right: 541px;
+}
+
+.slide img {
+  width: 450px;
+  height: auto;
+  display: block;
+  cursor: pointer;
+}
+
+.wrapperControls{
+  position: relative;
+  top: 160px;
+}
+
+.controls {
+  display: flex;
+  transform: translateY(-50%);
+  align-items: center;
+}
+
+.control {
+  color: #000;
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 33px;
+}
+.counter {
+  font-size: 18px;
+  padding: 5px 8px 0px 8px;
+}
+
+.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+.image-gallery {
+  display: flex;
+  justify-content: center;
+  /* position: relative; */
+  width: 700px;
+  height: 735px;
+  overflow: hidden;
+  opacity: 0;
+  visibility: hidden;
+}
+
+.image-gallery img {
+  position: absolute;
+  left: 699px;
+  /* width: 100%; */
+  height: 100%;
+  transition: opacity 0.5s ease, visibility 0.5s ease;
+  opacity: 0;
+  visibility: hidden;
+}
+
+.image-gallery img.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+.button {
+  display: flex;
+  position: absolute;
+  bottom: 70px;
+  width: 260px;
+  height: 85px;
+  cursor: pointer;
+}
+
+.seeSite {
+  position: absolute;
+  color: #fff;
+  font-size: 15px;
+  bottom: 30px;
+  left: 70px;
+  opacity: 0.8;
 }
