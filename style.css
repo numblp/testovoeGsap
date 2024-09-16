@@ -4,10 +4,6 @@
   box-sizing: border-box;
 }
 
-body {
-  
-}
-
 .ad{
   height: 100vh;
   width: 100vw;
@@ -29,12 +25,13 @@ body {
   align-items: center;
   position: relative;
   overflow: hidden;
-  
+}
 
+.tabletcontainer {
+  display: none;
 }
 
 .mainBG{
-  width: auto;
   height: 735px;
   position: absolute;
 }
@@ -42,8 +39,6 @@ body {
 .animatiomWrapper {
   width: calc(1316px - 150px);
   height: calc(735px - 150px);
-  /* outline: 1px solid black; */
-
   overflow: hidden;
 }
 
@@ -77,7 +72,6 @@ body {
 
 .slidingBG {
   background: #fff;
-  /* width: calc(1316px / 2); */
   width: 55%;
   height: 735px;
   position: absolute;
@@ -88,7 +82,6 @@ body {
 .slider {
   width: 100%;
   margin-bottom: -60px;
-  /* overflow: hidden; */
   position: absolute;
   bottom: 370px;
   left: 70px;
@@ -96,7 +89,6 @@ body {
 
 .slides {
   display: flex;
-  /* position: relative; */
   width: 100%;
 }
 
@@ -172,7 +164,6 @@ body {
 .image-gallery {
   display: flex;
   justify-content: center;
-  /* position: relative; */
   width: 700px;
   height: 735px;
   overflow: hidden;
@@ -183,7 +174,6 @@ body {
 .image-gallery img {
   position: absolute;
   left: 699px;
-  /* width: 100%; */
   height: 100%;
   transition: opacity 0.5s ease, visibility 0.5s ease;
   opacity: 0;
@@ -210,5 +200,155 @@ body {
   font-size: 15px;
   bottom: 30px;
   left: 70px;
-  opacity: 0.8;
+  opacity: 0.7;
+}
+
+.image-galleryTablet {
+  display: flex;
+  justify-content: center;
+  width: 700px;
+  height: 735px;
+  overflow: hidden;
+  opacity: 0;
+  visibility: hidden;
+}
+
+.image-galleryTablet img {
+  position: absolute;
+  left: 437px;
+  height: 100%;
+  transition: opacity 0.5s ease, visibility 0.5s ease;
+  opacity: 0;
+  visibility: hidden;
+}
+
+.image-galleryTablet img.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+@media (max-width: 1320px) {
+  .container {
+    display: none;
+  }
+  .tabletcontainer {
+    width: 800px;
+    height: 450px;
+    border: 3px solid #000;
+    background: url("bgcontainer.jpg") no-repeat;
+    background-size: contain;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .mainBG{
+    height: 450px;
+    position: absolute;
+
+  }
+
+  .animatiomWrapper {
+    margin: 30px 30px;
+    width: 800px;
+    height: 450px;
+    overflow: hidden;
+  }
+  .samsung {
+    margin-top: 60px;
+    width: 115px;
+    height: 18px;
+  }
+  .jet {
+    width: 141px;
+    height: 23px;
+    position: relative;
+  }
+  
+  .logos {
+    margin-top: 30px;
+  }
+  .mainString img{
+    width: calc(666px - 50%);
+    position: absolute;
+  }
+  .mainString {
+    margin-top: 30px;
+    position: relative;
+  
+  }
+  .slidingBG {
+    height: 450px;
+  }
+  .slide img {
+    width: 270px;
+    height: auto;
+    display: block;
+    cursor: pointer;
+  }
+
+  .slider {
+    top: 215px;
+    left: 30px;
+    margin-bottom: 0;
+  }
+
+  .slide a {
+    text-decoration: none;
+    color: #808080;
+    font-size: 13px;
+  }
+
+  .readMore1 {
+    top: 50px;
+    right: 273px;
+  }
+
+  .readMore2 {
+    display: block;
+    top: 51px;
+    right: 259px;
+  }
+  
+  .readMore4 {
+    position: absolute;
+    top: 70px;
+    right: 324px;
+  }
+
+  .wrapperControls{
+    position: relative;
+    top: 100px;
+  }
+
+  .control {
+    color: #000;
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 25px;
+  }
+  .counter {
+    font-size: 14px;
+    padding: 3px 4px 0px 4px;
+  }
+
+  .button {
+    width: 156px;
+    height: 51px;
+    display: flex;
+    position: absolute;
+    bottom: 60px;
+  }
+
+  .seeSite {
+    font-size: 13px;
+    left: 30px;
+    bottom:20px;
+    opacity: 0.7;
+  }
+
+
 }
