@@ -215,7 +215,7 @@
 
 .image-galleryTablet img {
   position: absolute;
-  left: 437px;
+  left: 99%;
   height: 100%;
   transition: opacity 0.5s ease, visibility 0.5s ease;
   opacity: 0;
@@ -263,7 +263,7 @@
     width: 115px;
     height: 18px;
   }
-  
+
   .jet {
     width: 141px;
     height: 23px;
@@ -275,7 +275,7 @@
   }
 
   .mainString img{
-    width: calc(666px - 50%);
+    width: 45%;
     position: absolute;
   }
 
@@ -290,7 +290,7 @@
   }
 
   .slide img {
-    width: 270px;
+    width: 70%;
     height: auto;
     display: block;
     cursor: pointer;
@@ -309,20 +309,32 @@
   }
 
   .readMore1 {
-    top: 50px;
-    right: 273px;
+    left: 0;
+    top: auto;
+    right: auto; 
   }
 
   .readMore2 {
-    display: block;
-    top: 51px;
-    right: 259px;
+    left: 0;
+    top: auto;
+    right: auto;
   }
   
   .readMore4 {
-    position: absolute;
-    top: 70px;
-    right: 324px;
+    left: 0;
+    top: auto;
+    right: auto;
+  }
+
+  .readMore3 {
+    left: 0;
+    top: auto;
+    right: auto;
+  }
+  .readMore5 {
+    left: 0;
+    top: auto;
+    right: auto;
   }
 
   .wrapperControls{

@@ -15,7 +15,7 @@ const intro = gsap.timeline()
     .from('.slider', {opacity: 0, duration: 1}, '<+0.5')
     .to('.seeSite', {color: '#000', duration: 1}, '<')
     
-const pulsing = gsap.timeline().to(".pulse", {scale: 0.8, duration: 1.5, yoyo: true, repeat: -1});
+    const pulsing = gsap.timeline().to(".pulse", {scale: 0.8, duration: 1.5, yoyo: true, repeat: -1});
     document.querySelector('.pulse').addEventListener("mouseenter", () => {
       pulsing.pause();
       gsap.to(".button", {scale: 1.1,})
@@ -95,9 +95,9 @@ function startAutoSlide(slidesArray) {
 
 // With a delay before starting the autoslide
 function startAutoSlideWithDelay(slidesArray, delay) {
-  setTimeout(() => {
-    startAutoSlide(slidesArray);
-  }, delay);
+  // setTimeout(() => {
+  //   startAutoSlide(slidesArray);
+  // }, delay);
 }
 
 function stopAutoSlide() {
