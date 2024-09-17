@@ -257,11 +257,13 @@
     height: 450px;
     overflow: hidden;
   }
+
   .samsung {
     margin-top: 60px;
     width: 115px;
     height: 18px;
   }
+  
   .jet {
     width: 141px;
     height: 23px;
@@ -271,18 +273,22 @@
   .logos {
     margin-top: 30px;
   }
+
   .mainString img{
     width: calc(666px - 50%);
     position: absolute;
   }
+
   .mainString {
     margin-top: 30px;
     position: relative;
   
   }
+
   .slidingBG {
     height: 450px;
   }
+
   .slide img {
     width: 270px;
     height: auto;
