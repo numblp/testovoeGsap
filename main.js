@@ -23,168 +23,39 @@ const intro = gsap.timeline()
     document.querySelector('.pulse').addEventListener("mouseleave", () => {gsap.to(".button", {scale: 1})});
 
 
-// const slides = document.querySelectorAll('.slide');
-// const nextButton = document.querySelector('.next');
-// const prevButton = document.querySelector('.prev');
-// const counter = document.querySelector('.counter');
-// const galleryImages = document.querySelectorAll('.image-gallery img');
-// const gallery = document.querySelector('.image-gallery');
-// let currentIndex = 0;
-// let galleryShown = false;
-// let autoSlideInterval;
-
-// // Обновление счетчика и синхронизация активного изображения галереи
-// function updateCounterAndGallery() {
-//   counter.textContent = `${currentIndex + 1}/${slides.length}`;
-//   galleryImages.forEach((img, index) => {
-//     img.classList.toggle('active', index === currentIndex);
-//   });
-// }
-
-// // Показ нужного слайда
-// function showSlide(index) {
-//   slides.forEach((slide, i) => {
-//     slide.classList.toggle('active', i === index);
-//     gsap.fromTo('.active', { x: 20, duration: 0.5}, {x: 0, duration: 0.5});
-//   });
-//   updateCounterAndGallery();
-// }
-
-// // Показ галереи с анимацией
-// function showGallery() {
-//   if (!galleryShown) {
-//     gsap.to(gallery, {
-//       opacity: 1,
-//       visibility: 'visible',
-//       duration: 0.8,
-//       ease: "power2.inOut"
-//     });
-//     galleryShown = true;
-//   }
-// }
-
-// // Автоматическое переключение слайдов через каждые 5 секунд
-// function startAutoSlide() {
-//   stopAutoSlide(); // Останавливаем любой предыдущий интервал
-//   // clearInterval(autoSlideInterval);
-//   autoSlideInterval = setInterval(() => {
-//     currentIndex = (currentIndex + 1) % slides.length;
-//     showSlide(currentIndex);
-//     showGallery(); // Показываем галерею при автоматическом переключении
-//   }, 5000);
-// }
-
-// function startAutoSlideWithDelay(delay) {
-//   setTimeout(() => {
-//     startAutoSlide();
-//   }, delay); // Задержка перед запуском автослайда
-// }
-// startAutoSlideWithDelay(5000);
-
-// // Останавливаем автоматическую смену
-// function stopAutoSlide() {
-//   clearInterval(autoSlideInterval);
-// }
-
-// // Control buttons "Next" и "Prev"
-
-// function animateButton(button) {
-//   gsap.fromTo(button, 
-//     { scale: 1 },
-//     { 
-//       scale: 0.6,
-//       duration: 0.3,
-//       ease: "power2.out",
-//       onComplete: () => {
-//         gsap.to(button, { 
-//           scale: 1,
-//           duration: 0.3, 
-//           ease: "power2.out"
-//         });
-//       }
-//     }
-//   );
-// }
-
-// function addListeners() {
-//   nextButton.addEventListener('click', () => {
-//     currentIndex = (currentIndex + 1) % slides.length;
-//     showSlide(currentIndex);
-//     showGallery();
-//     startAutoSlide();
-//     animateButton(nextButton);
-//   });
-  
-//   prevButton.addEventListener('click', () => {
-//     currentIndex = (currentIndex - 1 + slides.length) % slides.length;
-//     showSlide(currentIndex);
-//     showGallery();
-//     startAutoSlide();
-//     animateButton(prevButton);
-//   });
-  
-//   // Остановка автопереключения при наведении на стрелки
-//   nextButton.addEventListener('mouseenter', stopAutoSlide);
-//   prevButton.addEventListener('mouseenter', stopAutoSlide);
-  
-//   // Возобновление автопереключения при уходе мыши со стрелок
-//   nextButton.addEventListener('mouseleave', startAutoSlide);
-//   prevButton.addEventListener('mouseleave', startAutoSlide);
-  
-//   // Обновление слайдов при изменении размера окна
-//   window.addEventListener('resize', () => {
-//     showSlide(currentIndex);
-//   });
-// }
-
-// /////////// main ///////////////////////////////
-// addListeners();
-// // Start Auto Slide
-// startAutoSlide();
-// ////////////////////////////////////////////////
-
-
-
-
 const container = document.querySelector('.container');
 const tabletContainer = document.querySelector('.tabletcontainer');
-
-// Выбор слайдов для каждого контейнера
-const slides = container.querySelectorAll('.slide'); // Для контейнера .container
-const tabletSlides = tabletContainer.querySelectorAll('.slide'); // Для контейнера .tabletcontainer
-
-// Кнопки управления для каждого контейнера
+const slides = container.querySelectorAll('.slide');
+const tabletSlides = tabletContainer.querySelectorAll('.slide');
 const nextButton = container.querySelector('.next');
 const prevButton = container.querySelector('.prev');
 const tabletNextButton = tabletContainer.querySelector('.next');
 const tabletPrevButton = tabletContainer.querySelector('.prev');
 
-// Элементы галереи и другие
+// Elemets gallary and slider
 const counter = document.querySelectorAll('.counter');
-// const countertablet = document.querySelector('.countertablet');
 const galleryImages = document.querySelectorAll('.image-gallery img');
 const galleryImagesTablet = document.querySelectorAll('.image-galleryTablet img');
-
 const gallery = document.querySelector('.image-gallery');
 const galleryTablet = document.querySelector('.image-galleryTablet');
 let currentIndex = 0;
 let galleryShown = false;
 let autoSlideInterval;
 
-// Обновление счетчика и синхронизация активного изображения галереи
+// Updating the counter and synchronizing the active gallery image
 function updateCounterAndGallery(slidesArray) {
-  // counter.textContent = `${currentIndex + 1}/${slidesArray.length}`;
-  counter.forEach(counter => {counter.textContent = `${currentIndex + 1}/${slidesArray.length}`})
+  counter.forEach(counter => {counter.textContent = `${currentIndex + 1}/${slidesArray.length}`});
+
   galleryImages.forEach((img, index) => {
-    img.classList.toggle('active', index === currentIndex);
+    img.classList.toggle('active-img', index === currentIndex);
   });
 
   galleryImagesTablet.forEach((img, index) => {
-    img.classList.toggle('active', index === currentIndex);
+    img.classList.toggle('active-img', index === currentIndex);
   });
 }
 
-// Показ нужного слайда
+// Show the desired slide
 function showSlide(slidesArray, index) {
   slidesArray.forEach((slide, i) => {
     slide.classList.toggle('active', i === index);
@@ -193,7 +64,7 @@ function showSlide(slidesArray, index) {
   updateCounterAndGallery(slidesArray);
 }
 
-// Показ галереи с анимацией
+// Show gallery with animation
 function showGallery() {
   if (!galleryShown) {
     gsap.to(gallery, {
@@ -212,31 +83,27 @@ function showGallery() {
   }
 }
 
-
-
-// Автоматическое переключение слайдов через каждые 5 секунд
+// Auto switch slides
 function startAutoSlide(slidesArray) {
-  stopAutoSlide(); // Останавливаем любой предыдущий интервал
+  stopAutoSlide();
   autoSlideInterval = setInterval(() => {
     currentIndex = (currentIndex + 1) % slidesArray.length;
     showSlide(slidesArray, currentIndex);
-    showGallery(); // Показываем галерею при автоматическом переключении
+    showGallery();
   }, 7000);
 }
 
-// С задержкой перед запуском автослайда
+// With a delay before starting the autoslide
 function startAutoSlideWithDelay(slidesArray, delay) {
   setTimeout(() => {
     startAutoSlide(slidesArray);
-  }, delay); // Задержка перед запуском автослайда
+  }, delay);
 }
 
-// Останавливаем автоматическую смену
 function stopAutoSlide() {
   clearInterval(autoSlideInterval);
 }
 
-// Анимация кнопок
 function animateButton(button) {
   gsap.fromTo(button, 
     { scale: 1 },
@@ -253,7 +120,7 @@ function animateButton(button) {
   );
 }
 
-// Добавление слушателей для управления слайдерами в каждом контейнере
+// Add listebers for control sliders in each contaner
 function addListeners(slidesArray, nextButton, prevButton) {
   nextButton.addEventListener('click', () => {
     currentIndex = (currentIndex + 1) % slidesArray.length;
@@ -271,26 +138,19 @@ function addListeners(slidesArray, nextButton, prevButton) {
     animateButton(prevButton);
   });
 
-  // Остановка автопереключения при наведении на стрелки
+  // Stop auto show when hover arrows
   nextButton.addEventListener('mouseenter', stopAutoSlide);
   prevButton.addEventListener('mouseenter', stopAutoSlide);
 
-  // Возобновление автопереключения при уходе мыши со стрелок
+  // Resume auto show when mouse leaves arrows keys
   nextButton.addEventListener('mouseleave', () => startAutoSlide(slidesArray));
   prevButton.addEventListener('mouseleave', () => startAutoSlide(slidesArray));
-
-  // Обновление слайдов при изменении размера окна
-  window.addEventListener('resize', () => {
-    showSlide(slidesArray, currentIndex);
-  });
 }
 
-// Инициализация слайдеров для каждого контейнера
-addListeners(slides, nextButton, prevButton); // Для основного контейнера
-addListeners(tabletSlides, tabletNextButton, tabletPrevButton); // Для tablet контейнера
+// Initializing sliders for each container
+addListeners(slides, nextButton, prevButton);
+addListeners(tabletSlides, tabletNextButton, tabletPrevButton);
 
-// Запуск автослайда с задержкой
-startAutoSlideWithDelay(slides, 7000); // Для основного контейнера
-startAutoSlideWithDelay(tabletSlides, 7000); // Для tablet контейнера
-
-// add string from psd write to Olia
+// Start auto show with delay
+startAutoSlideWithDelay(slides, 7000);
+startAutoSlideWithDelay(tabletSlides, 7000);

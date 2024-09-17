@@ -180,7 +180,7 @@
   visibility: hidden;
 }
 
-.image-gallery img.active {
+.image-gallery img.active-img {
   opacity: 1;
   visibility: visible;
 }
@@ -222,10 +222,11 @@
   visibility: hidden;
 }
 
-.image-galleryTablet img.active {
+.image-galleryTablet img.active-img {
   opacity: 1;
   visibility: visible;
 }
+
 
 @media (max-width: 1320px) {
   .container {
